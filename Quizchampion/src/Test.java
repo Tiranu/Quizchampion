@@ -1,6 +1,9 @@
+import java.awt.EventQueue;
 
-public class Test {
+import javax.swing.JFrame;
 
+public class Test {	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		guiErstellen();
@@ -8,8 +11,16 @@ public class Test {
 
 	public static void guiErstellen()
 	{
-		
-	GUI_Start gui = new GUI_Start();
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI_Start window = new GUI_Start();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 
 	}
 }
