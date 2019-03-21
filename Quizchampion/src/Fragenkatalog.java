@@ -28,15 +28,27 @@ public class Fragenkatalog {
 		kategorien.add("Biologie");	
 	}
 	
+	
+	/*
+	 * Die Methode informatikFuellen füllt die Kategorie "Informatik" mit Fragen. Jede Frage wird einzeln als Frageobjekt an die Arraylist der Kategorie übergeben.
+	 */
+	
 	private void informatikFuellen(int kategorieZahl)
 	{
 		int i = 1;
 		String kategorie = "Informatik";
+		
 		if (fragenliste.containsKey(kategorie))
 		{
-		ArrayList<Frage> liste = fragenliste.get(kategorie);
-		liste.add(new Frage(i,kategorieZahl,"Wieviele Bit hat ein Byte", "2", "4", "8", "1024", "c"));
+		ArrayList<Frage> liste = fragenliste.get(kategorie); // lokale Variable Liste enthält die Arraylist für diese Kategorie
+		
+		liste.add(new Frage(i,kategorieZahl,"Wieviele Bit hat ein Byte?", "2", "4", "8", "1024", "c"));
 		i++;
+		
+		liste.add(new Frage(i,kategorieZahl,"Wann wurde die Firma Microsoft gegründet?", "2", "4", "8", "1024", "c"));
+		i++;
+		
+		
 		}else {
 			System.out.println("Kategorie nicht enthalten");
 		}

@@ -7,6 +7,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new Fragenkatalog();
+		guiErstellen();
 	}
 
 	public static void guiErstellen()
@@ -15,7 +16,7 @@ public class Test {
 			public void run() {
 				try {
 					GUI_Start window = new GUI_Start();
-					window.frame.setVisible(true);
+					window.frmWerWirdMcgquizchampion.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
