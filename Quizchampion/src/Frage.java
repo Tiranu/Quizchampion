@@ -11,7 +11,7 @@ private String antwortB;
 private String antwortC;
 private String antwortD;
 
-private String korrekteAntwort;
+private Character korrekteAntwort;
 
 /**
  * @param nummer
@@ -24,7 +24,7 @@ private String korrekteAntwort;
  * @param korrekteAntwort
  */
 
-public Frage(int nummer, int kategorie, String frage, String a, String b, String c, String d, String korrekteAntwort) {
+public Frage(int nummer, int kategorie, String frage, String a, String b, String c, String d, Character korrekteAntwort) {
 	super();
 	this.nummer = nummer;
 	this.kategorie = kategorie;
@@ -95,11 +95,11 @@ private void setD(String d) {
 	this.antwortD = d;
 }
 
-public String getKorrekteAntwort() {
+public Character getKorrekteAntwort() {
 	return korrekteAntwort;
 }
 
-private void setKorrekteAntwort(String korrekteAntwort) {
+private void setKorrekteAntwort(Character korrekteAntwort) {
 	this.korrekteAntwort = korrekteAntwort;
 }
 

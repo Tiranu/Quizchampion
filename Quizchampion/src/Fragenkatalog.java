@@ -42,10 +42,10 @@ public class Fragenkatalog {
 		{
 		ArrayList<Frage> liste = fragenliste.get(kategorie); // lokale Variable Liste enthält die Arraylist für diese Kategorie
 		
-		liste.add(new Frage(i,kategorieZahl,"Wieviele Bit hat ein Byte?", "2", "4", "8", "1024", "c"));
+		liste.add(new Frage(i,kategorieZahl,"Wieviele Bit hat ein Byte?", "2", "4", "8", "1024", 'c'));
 		i++;
 		
-		liste.add(new Frage(i,kategorieZahl,"Wann wurde die Firma Microsoft gegründet?", "2", "4", "8", "1024", "c"));
+		liste.add(new Frage(i,kategorieZahl,"Wann wurde die Firma Microsoft gegründet?", "2", "4", "8", "1024", 'c'));
 		i++;
 		
 		

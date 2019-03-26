@@ -5,12 +5,19 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
 import java.awt.Font;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.Color;
 
 public class GUI_Fragen extends JFrame {
 
@@ -21,6 +28,19 @@ public class GUI_Fragen extends JFrame {
 	private JButton btnAntwortB;
 	private JButton btnAntwortC;
 	private JButton btnAntwortD;
+	private JLabel lblTime;
+	private int zeit = 41;
+	
+	private Character antwortSpieler1;
+	private Character spieler1antwortA = 'q'; private Character spieler1antwortB = 'w'; private Character spieler1antwortC = 'e'; private Character spieler1antwortD = 'r';
+	
+	private Character antwortSpieler2;
+	private Character spieler2antwortA = 'v'; private Character spieler2antwortB = 'b'; private Character spieler2antwortC = 'n'; private Character spieler2antwortD = 'm';
+	
+	private Character antwortSpieler3;
+	private Character spieler3antwortA = 'u'; private Character spieler3antwortB = 'i'; private Character spieler3antwortC = 'o'; private Character spieler3antwortD = 'p';
+
+	
 
 	/**
 	 * Launch the application.
@@ -46,19 +66,78 @@ public class GUI_Fragen extends JFrame {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 1024);
 		contentPane = new JPanel();
+		
+		/*
+		 * Der KeyboardFocusManager mit dem KeyEventDispatcher nimmt alle Keyboardeingaben entgegen. Mit einem Switch werden die einzelnen Eingaben verarbeitet
+		 */
+		KeyboardFocusManager.getCurrentKeyboardFocusManager()
+		  .addKeyEventDispatcher(new KeyEventDispatcher() {
+		      @Override
+		      public boolean dispatchKeyEvent(KeyEvent e) {
+		    	  if(Integer.parseInt(lblTime.getText()) != 0)
+		    	  {
+		    		  System.out.println("Got key event! " + e.getKeyChar());
+		    		  switch (e.getKeyChar()) {
+		         case 'q':
+		             setAntwortSpieler1('q');
+		             break;
+		         case 'w':
+		             setAntwortSpieler1('w');
+		             break;
+		         case 'e':
+		             setAntwortSpieler1('e');
+		             break;
+		         case 'r':
+		             setAntwortSpieler1('r');
+		             break;
+		         case 'v':
+		             setAntwortSpieler2('v');
+		             break;
+		         case 'b':
+		             setAntwortSpieler2('b');
+		             break;
+		         case 'n':
+		             setAntwortSpieler2('n');
+		             break;
+		         case 'm':
+		             setAntwortSpieler2('m');
+		             break;
+		         case 'u':
+		             setAntwortSpieler3('u');
+		             break;
+		         case 'i':
+		             setAntwortSpieler3('i');
+		             break;
+		         case 'o':
+		             setAntwortSpieler3('o');
+		             break;
+		         case 'p':
+		             setAntwortSpieler3('p');
+		             break;
+		         default:
+		             System.out.println("Falsche Taste gedrückt");
+		        }
+		        System.out.println("S1 " + getAntwortSpieler1());
+		        System.out.println("S2 " + getAntwortSpieler2());
+		        System.out.println("S3 " + getAntwortSpieler3());
+		    	}
+				return false;
+		      }
+		});
+
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		lblFrage = new JLabel("Frage: ");
-		lblFrage.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblFrage.setFont(new Font("Khmer MN", Font.PLAIN, 40));
 		lblFrage.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFrage.setBounds(10, 149, 1164, 60);
 		contentPane.add(lblFrage);
 		
 		lblFragentext = new JLabel("Welches Fach ist das spannendste am MCG?");
 		lblFragentext.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFragentext.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblFragentext.setFont(new Font("Khmer Sangam MN", Font.PLAIN, 25));
 		lblFragentext.setBounds(10, 244, 1164, 60);
 		contentPane.add(lblFragentext);
 		
@@ -86,6 +165,59 @@ public class GUI_Fragen extends JFrame {
 		btnAntwortD.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		btnAntwortD.setBounds(614, 660, 70, 70);
 		contentPane.add(btnAntwortD);
+		
+		lblTime = new JLabel("" + zeit);
+		lblTime.setFont(new Font("Khmer MN", Font.PLAIN, 90));
+		lblTime.setForeground(new Color(255, 0, 0));
+		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTime.setBounds(1054, 40, 100, 100);
+		contentPane.add(lblTime);
+		
+		int delay = 1000; //milliseconds
+		  ActionListener taskPerformer = new ActionListener() {
+		      public void actionPerformed(ActionEvent evt) {
+		    	  lblTime.setText(Integer.toString(Integer.parseInt(lblTime.getText()) - 1));   	  
+		      }
+		      if (Integer.parseInt(lblTime.getText()) == 0)
+	    	  {
+	    		  antwortAufloesen();
+	    		  timer.stop();
+	    	  
+		  };
+		  
+		  Timer timer = new Timer(delay, taskPerformer);
+		  timer.start();
+		  System.out.println("Timer gestartet");
+		  
+
 	}
 
+	private void antwortAufloesen()
+	{
+		System.out.println("Auflösung");
+	}
+
+	private Character getAntwortSpieler1() {
+		return antwortSpieler1;
+	}
+
+	private void setAntwortSpieler1(Character antwortSpieler1) {
+		this.antwortSpieler1 = antwortSpieler1;
+	}
+
+	private Character getAntwortSpieler2() {
+		return antwortSpieler2;
+	}
+
+	private void setAntwortSpieler2(Character antwortSpieler2) {
+		this.antwortSpieler2 = antwortSpieler2;
+	}
+
+	private Character getAntwortSpieler3() {
+		return antwortSpieler3;
+	}
+
+	private void setAntwortSpieler3(Character antwortSpieler3) {
+		this.antwortSpieler3 = antwortSpieler3;
+	}
 }
