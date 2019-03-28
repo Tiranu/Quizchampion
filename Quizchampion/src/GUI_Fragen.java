@@ -29,7 +29,8 @@ public class GUI_Fragen extends JFrame {
 	private JButton btnAntwortC;
 	private JButton btnAntwortD;
 	private JLabel lblTime;
-	private int zeit = 41;
+	private int startzeit = 41;
+	private int verbleibendeZeit = startzeit;
 	
 	private Character antwortSpieler1;
 	private Character spieler1antwortA = 'q'; private Character spieler1antwortB = 'w'; private Character spieler1antwortC = 'e'; private Character spieler1antwortD = 'r';
@@ -166,7 +167,7 @@ public class GUI_Fragen extends JFrame {
 		btnAntwortD.setBounds(614, 660, 70, 70);
 		contentPane.add(btnAntwortD);
 		
-		lblTime = new JLabel("" + zeit);
+		lblTime = new JLabel("" + verbleibendeZeit);
 		lblTime.setFont(new Font("Khmer MN", Font.PLAIN, 90));
 		lblTime.setForeground(new Color(255, 0, 0));
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
@@ -175,18 +176,21 @@ public class GUI_Fragen extends JFrame {
 		
 		int delay = 1000; //milliseconds
 		  ActionListener taskPerformer = new ActionListener() {
-		      public void actionPerformed(ActionEvent evt) {
-		    	  lblTime.setText(Integer.toString(Integer.parseInt(lblTime.getText()) - 1));   	  
+		      public void actionPerformed(ActionEvent evt) {		    	  
+		    	  lblTime.setText("" + verbleibendeZeit);
+		    	  if (verbleibendeZeit == 0)
+		    	  {
+		    		  antwortAufloesen();
+	    		  //timer.stop();
+		    	  }else {
+		    		  verbleibendeZeit--;
+		    	  }
 		      }
-		      if (Integer.parseInt(lblTime.getText()) == 0)
-	    	  {
-	    		  antwortAufloesen();
-	    		  timer.stop();
-	    	  
 		  };
 		  
-		  Timer timer = new Timer(delay, taskPerformer);
-		  timer.start();
+		  
+		  new Timer(delay,taskPerformer).start();
+
 		  System.out.println("Timer gestartet");
 		  
 
