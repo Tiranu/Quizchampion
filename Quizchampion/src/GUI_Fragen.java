@@ -181,16 +181,14 @@ public class GUI_Fragen extends JFrame {
 		    	  if (verbleibendeZeit == 0)
 		    	  {
 		    		  antwortAufloesen();
+		    		  ((Timer)evt.getSource()).stop();
 	    		  //timer.stop();
 		    	  }else {
 		    		  verbleibendeZeit--;
 		    	  }
 		      }
 		  };
-		  
-		  
 		  new Timer(delay,taskPerformer).start();
-
 		  System.out.println("Timer gestartet");
 		  
 
