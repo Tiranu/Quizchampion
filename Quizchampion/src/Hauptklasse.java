@@ -4,6 +4,9 @@ public class Hauptklasse {
 
 	public static Fragenkatalog fragenkatalog = new Fragenkatalog();
 	private static int spielerzahl = 0;
+	private static int punkteS1 = 0;
+	private static int punkteS2 = 0;
+	private static int punkteS3 = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -57,7 +60,31 @@ public class Hauptklasse {
 	}
 
 	public static void setSpielerzahl(int sz) {
-		spielerzahl = sz;
+		Hauptklasse.spielerzahl = sz;
+	}
+
+	public static int getPunkteS1() {
+		return punkteS1;
+	}
+
+	public static void setPunkteS1(int punkteS1) {
+		Hauptklasse.punkteS1 = punkteS1;
+	}
+
+	public static int getPunkteS2() {
+		return punkteS2;
+	}
+
+	public static void setPunkteS2(int punkteS2) {
+		Hauptklasse.punkteS2 = punkteS2;
+	}
+
+	public static int getPunkteS3() {
+		return punkteS3;
+	}
+
+	public static void setPunkteS3(int punkteS3) {
+		Hauptklasse.punkteS3 = punkteS3;
 	}
 }
 	
