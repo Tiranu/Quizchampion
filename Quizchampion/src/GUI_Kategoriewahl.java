@@ -51,6 +51,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		contentPane.setLayout(null);
 		
 		ArrayList<String> zufaelligeKategorien = new ArrayList<String>();
+		zufaelligeKategorien = zufaelligeKategorieauswahl(anzahlKategorien-1);
 		
 		lblWhleEineKategorie = new JLabel("Wähle eine Kategorie");
 		lblWhleEineKategorie.setHorizontalAlignment(SwingConstants.CENTER);
@@ -86,7 +87,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		contentPane.add(btnKategorie3);
 	}
 	
-	public ArrayList<String> zufaelligeKategorieauswahl ()
+	public ArrayList<String> zufaelligeKategorieauswahl(int anzahlKategorien)
 	{ 
 		int kat1 = (int) Math.round((Math.random() * anzahlKategorien));
 		

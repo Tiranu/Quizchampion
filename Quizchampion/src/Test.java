@@ -6,8 +6,9 @@ public class Test {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new Fragenkatalog();
-		guiErstellen();
+		//new Fragenkatalog();
+		//guiErstellen();
+		testGUI_Kategorienwahl();
 	}
 
 	public static void guiErstellen()
@@ -27,7 +28,6 @@ public class Test {
 	
 	public static void testGUI_Kategorienwahl()
 	{
-		new Fragenkatalog();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

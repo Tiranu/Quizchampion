@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 public class Hauptklasse {
 
 	public static Fragenkatalog fragenkatalog = new Fragenkatalog();
+	private static int spielerzahl = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -49,6 +50,14 @@ public class Hauptklasse {
 			}
 		});
 		
+	}
+
+	public static int getSpielerzahl() {
+		return spielerzahl;
+	}
+
+	public static void setSpielerzahl(int sz) {
+		spielerzahl = sz;
 	}
 }
 	

@@ -9,12 +9,19 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ButtonGroup;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JTextArea;
 
 public class GUI_Start {
 
 	JFrame frmWerWirdMcgquizchampion;
-	int spielerzahl = 0;
 	private final ButtonGroup btnGroupSpielerzahl = new ButtonGroup();
+	private JTextField tfSpielername1;
+	private JTextField tfSpielername2;
+	private JTextField tfSpielername3;
+	private JTextArea txtrRegeln;
+	private JButton btnLaden;
 
 	/**
 	 * Launch the application.
@@ -58,53 +65,83 @@ public class GUI_Start {
 		frmWerWirdMcgquizchampion.getContentPane().add(lblWillkommenBeiMcgquizchampion);
 		
 		JButton btnSpieler_1 = new JButton("1 Spieler");
+		btnGroupSpielerzahl.add(btnSpieler_1);
 		btnSpieler_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				spielerzahl = 1;
+				Hauptklasse.setSpielerzahl(1);
 			}
 		});
-		btnSpieler_1.setBounds(425, 250, 150, 40);
+		btnSpieler_1.setBounds(50, 250, 150, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_1);
 		
 		JButton btnSpieler_2 = new JButton("2 Spieler");
+		btnGroupSpielerzahl.add(btnSpieler_2);
 		btnSpieler_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				spielerzahl = 2;
+				Hauptklasse.setSpielerzahl(2);
 			}
 		});
-		btnSpieler_2.setBounds(425, 350, 150, 40);
+		btnSpieler_2.setBounds(50, 350, 150, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_2);
 		
 		JButton btnSpieler_3 = new JButton("3 Spieler");
+		btnGroupSpielerzahl.add(btnSpieler_3);
 		btnSpieler_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				spielerzahl = 3;
+				Hauptklasse.setSpielerzahl(3);
 			}
 		});
-		btnSpieler_3.setBounds(425, 450, 150, 40);
+		btnSpieler_3.setBounds(50, 450, 150, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_3);
 		
 		JLabel lblBitteWhleDie = new JLabel("Bitte wähle die Anzahl der Spieler!");
 		lblBitteWhleDie.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBitteWhleDie.setFont(new Font("Lucida Grande", Font.PLAIN, 24));
-		lblBitteWhleDie.setBounds(275, 154, 450, 40);
+		lblBitteWhleDie.setBounds(275, 132, 450, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(lblBitteWhleDie);
 		
 		JButton btnStart = new JButton("Start!");
 		btnStart.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (spielerzahl != 0)
+				if (Hauptklasse.getSpielerzahl() != 0)
 				{
 					Hauptklasse.fragenStarten();
 				}
 			}
 		});
 		btnStart.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		btnStart.setBounds(425, 560, 150, 40);
+		btnStart.setBounds(50, 657, 150, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(btnStart);
+		
+		tfSpielername1 = new JTextField();
+		tfSpielername1.setBounds(50, 300, 150, 40);
+		frmWerWirdMcgquizchampion.getContentPane().add(tfSpielername1);
+		tfSpielername1.setColumns(10);
+		
+		tfSpielername2 = new JTextField();
+		tfSpielername2.setColumns(10);
+		tfSpielername2.setBounds(50, 402, 150, 40);
+		frmWerWirdMcgquizchampion.getContentPane().add(tfSpielername2);
+		
+		tfSpielername3 = new JTextField();
+		tfSpielername3.setColumns(10);
+		tfSpielername3.setBounds(50, 502, 150, 40);
+		frmWerWirdMcgquizchampion.getContentPane().add(tfSpielername3);
+		
+		txtrRegeln = new JTextArea();
+		txtrRegeln.setLineWrap(true);
+		txtrRegeln.setText("Regeln:");
+		txtrRegeln.setBounds(275, 250, 600, 350);
+		frmWerWirdMcgquizchampion.getContentPane().add(txtrRegeln);
+		
+		btnLaden = new JButton("Spiel laden");
+		btnLaden.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		btnLaden.setBounds(251, 657, 150, 40);
+		frmWerWirdMcgquizchampion.getContentPane().add(btnLaden);
+		
 	}
 }
