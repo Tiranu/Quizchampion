@@ -24,4 +24,19 @@ public class Test {
 		});
 
 	}
+	
+	public static void testGUI_Kategorienwahl()
+	{
+		new Fragenkatalog();
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI_Kategoriewahl frame = new GUI_Kategoriewahl();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 }

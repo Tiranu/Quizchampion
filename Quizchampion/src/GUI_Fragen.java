@@ -51,7 +51,7 @@ public class GUI_Fragen extends JFrame {
 			@Override
 			public void run() {
 				try {
-					GUI_Fragen frame = new GUI_Fragen();
+					GUI_Fragen frame = new GUI_Fragen("1", "2", "3", "4", "5", "6", 'A', 3);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -63,7 +63,7 @@ public class GUI_Fragen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI_Fragen() {
+	public GUI_Fragen(String kategorie, String frage, String antwortA, String antwortB, String antwortC, String antwortD, Character loesung, int schwierigkeitsgrad) {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 1024);
 		contentPane = new JPanel();
@@ -75,53 +75,7 @@ public class GUI_Fragen extends JFrame {
 		  .addKeyEventDispatcher(new KeyEventDispatcher() {
 		      @Override
 		      public boolean dispatchKeyEvent(KeyEvent e) {
-		    	  if(Integer.parseInt(lblTime.getText()) != 0)
-		    	  {
-		    		  System.out.println("Got key event! " + e.getKeyChar());
-		    		  switch (e.getKeyChar()) {
-		         case 'q':
-		             setAntwortSpieler1('q');
-		             break;
-		         case 'w':
-		             setAntwortSpieler1('w');
-		             break;
-		         case 'e':
-		             setAntwortSpieler1('e');
-		             break;
-		         case 'r':
-		             setAntwortSpieler1('r');
-		             break;
-		         case 'v':
-		             setAntwortSpieler2('v');
-		             break;
-		         case 'b':
-		             setAntwortSpieler2('b');
-		             break;
-		         case 'n':
-		             setAntwortSpieler2('n');
-		             break;
-		         case 'm':
-		             setAntwortSpieler2('m');
-		             break;
-		         case 'u':
-		             setAntwortSpieler3('u');
-		             break;
-		         case 'i':
-		             setAntwortSpieler3('i');
-		             break;
-		         case 'o':
-		             setAntwortSpieler3('o');
-		             break;
-		         case 'p':
-		             setAntwortSpieler3('p');
-		             break;
-		         default:
-		             System.out.println("Falsche Taste gedrückt");
-		        }
-		        System.out.println("S1 " + getAntwortSpieler1());
-		        System.out.println("S2 " + getAntwortSpieler2());
-		        System.out.println("S3 " + getAntwortSpieler3());
-		    	}
+		    	  tastatureingabenAuslesen(e);
 				return false;
 		      }
 		});
@@ -130,13 +84,13 @@ public class GUI_Fragen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		lblFrage = new JLabel("Frage: ");
+		lblFrage = new JLabel("Kategorie: " + kategorie);
 		lblFrage.setFont(new Font("Khmer MN", Font.PLAIN, 40));
 		lblFrage.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFrage.setBounds(10, 149, 1164, 60);
 		contentPane.add(lblFrage);
 		
-		lblFragentext = new JLabel("Welches Fach ist das spannendste am MCG?");
+		lblFragentext = new JLabel("Welches Fach ist das spannendste am MCG?" + frage);
 		lblFragentext.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFragentext.setFont(new Font("Khmer Sangam MN", Font.PLAIN, 25));
 		lblFragentext.setBounds(10, 244, 1164, 60);
@@ -221,5 +175,59 @@ public class GUI_Fragen extends JFrame {
 
 	private void setAntwortSpieler3(Character antwortSpieler3) {
 		this.antwortSpieler3 = antwortSpieler3;
+	}
+
+	/**
+	 * @param e
+	 */
+	
+	private void tastatureingabenAuslesen(KeyEvent e) {
+		if(Integer.parseInt(lblTime.getText()) != 0)
+		  {
+			  System.out.println("Got key event! " + e.getKeyChar());
+			  switch (e.getKeyChar()) {
+		 case 'q':
+		     setAntwortSpieler1('q');
+		     break;
+		 case 'w':
+		     setAntwortSpieler1('w');
+		     break;
+		 case 'e':
+		     setAntwortSpieler1('e');
+		     break;
+		 case 'r':
+		     setAntwortSpieler1('r');
+		     break;
+		 case 'v':
+		     setAntwortSpieler2('v');
+		     break;
+		 case 'b':
+		     setAntwortSpieler2('b');
+		     break;
+		 case 'n':
+		     setAntwortSpieler2('n');
+		     break;
+		 case 'm':
+		     setAntwortSpieler2('m');
+		     break;
+		 case 'u':
+		     setAntwortSpieler3('u');
+		     break;
+		 case 'i':
+		     setAntwortSpieler3('i');
+		     break;
+		 case 'o':
+		     setAntwortSpieler3('o');
+		     break;
+		 case 'p':
+		     setAntwortSpieler3('p');
+		     break;
+		 default:
+		     System.out.println("Falsche Taste gedrückt");
+		}
+		System.out.println("S1 " + getAntwortSpieler1());
+		System.out.println("S2 " + getAntwortSpieler2());
+		System.out.println("S3 " + getAntwortSpieler3());
+		}
 	}
 }
