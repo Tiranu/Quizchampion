@@ -22,7 +22,7 @@ import java.awt.Color;
 public class GUI_Fragen extends JFrame {
 
 	private JPanel contentPane;
-	private JLabel lblFrage;
+	private JLabel lblKategorie;
 	private JLabel lblFragentext;
 	private JButton btnAntwortA;
 	private JButton btnAntwortB;
@@ -40,6 +40,9 @@ public class GUI_Fragen extends JFrame {
 	
 	private Character antwortSpieler3;
 	private Character spieler3antwortA = 'u'; private Character spieler3antwortB = 'i'; private Character spieler3antwortC = 'o'; private Character spieler3antwortD = 'p';
+ private JLabel lblPunkteSpieler1;
+ private JLabel lblPunkteSpieler2;
+ private JLabel lblPunkteSpieler3;
 
 	
 
@@ -84,11 +87,11 @@ public class GUI_Fragen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		lblFrage = new JLabel("Kategorie: " + kategorie);
-		lblFrage.setFont(new Font("Khmer MN", Font.PLAIN, 40));
-		lblFrage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFrage.setBounds(10, 149, 1164, 60);
-		contentPane.add(lblFrage);
+		lblKategorie = new JLabel("Kategorie: " + kategorie);
+		lblKategorie.setFont(new Font("Khmer MN", Font.PLAIN, 40));
+		lblKategorie.setHorizontalAlignment(SwingConstants.CENTER);
+		lblKategorie.setBounds(300, 149, 600, 60);
+		contentPane.add(lblKategorie);
 		
 		lblFragentext = new JLabel("Welches Fach ist das spannendste am MCG?" + frage);
 		lblFragentext.setHorizontalAlignment(SwingConstants.CENTER);
@@ -127,6 +130,21 @@ public class GUI_Fragen extends JFrame {
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTime.setBounds(1054, 40, 100, 100);
 		contentPane.add(lblTime);
+		
+		lblPunkteSpieler1 = new JLabel("Punkte Spieler 1: ");
+		lblPunkteSpieler1.setFont(new Font("Khmer MN", Font.PLAIN, 20));
+		lblPunkteSpieler1.setBounds(32, 84, 150, 30);
+		contentPane.add(lblPunkteSpieler1);
+		
+		lblPunkteSpieler2 = new JLabel("Punkte Spieler 2: ");
+		lblPunkteSpieler2.setFont(new Font("Khmer MN", Font.PLAIN, 20));
+		lblPunkteSpieler2.setBounds(32, 126, 150, 30);
+		contentPane.add(lblPunkteSpieler2);
+		
+		lblPunkteSpieler3 = new JLabel("Punkte Spieler 3: ");
+		lblPunkteSpieler3.setFont(new Font("Khmer MN", Font.PLAIN, 20));
+		lblPunkteSpieler3.setBounds(32, 169, 150, 30);
+		contentPane.add(lblPunkteSpieler3);
 		
 		int delay = 1000; //milliseconds
 		  ActionListener taskPerformer = new ActionListener() {
