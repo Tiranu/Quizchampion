@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class Fragenkatalog {
 
 	
-	HashMap<String,ArrayList<Frage>> fragenliste = new HashMap<String, ArrayList<Frage>>();
+	HashMap<String,HashMap<Integer, ArrayList<Frage>>> fragenliste = new HashMap<String, HashMap<Integer, ArrayList<Frage>>>();
 	ArrayList<String> kategorien = new ArrayList<String>();
 	
 	
@@ -13,7 +13,13 @@ public class Fragenkatalog {
 		kategorienFuellen();
 		for(int i = 0; i<kategorien.size();i++)
 		{
-			fragenliste.put(kategorien.get(i), new ArrayList<Frage>());
+			fragenliste.put(kategorien.get(i), new HashMap<Integer, ArrayList<Frage>>());
+					
+			for(int j = 1; i <= Hauptklasse.getAnzahlSchwierigkeitsgrade();i++)
+			{
+				fragenliste.get(kategorien.get(i)).put(j, new ArrayList<Frage>());
+			}
+			
 		}
 		informatikFuellen(kategorien.indexOf("Informatik")+1);
 		System.out.println(fragenliste);
@@ -40,17 +46,38 @@ public class Fragenkatalog {
 		
 		if (fragenliste.containsKey(kategorie))
 		{
-		ArrayList<Frage> liste = fragenliste.get(kategorie); // lokale Variable Liste enthält die Arraylist für diese Kategorie
+		HashMap<Integer, ArrayList<Frage>> hmFuerKategorie = fragenliste.get(kategorie); // lokale Variable Liste enthält die Arraylist für diese Kategorie
 		
-		liste.add(new Frage(i,kategorieZahl, 1, "Wieviele Bit hat ein Byte?", "2", "4", "8", "1024", 'c'));
+		//Fragen des Schwierigkeitsgrad 1
+		
+		ArrayList<Frage> listeSchwierigkeit1 = hmFuerKategorie.get(1);
+		
+		listeSchwierigkeit1.add(new Frage(i,kategorieZahl, 1, "Wieviele Bit hat ein Byte?", "2", "4", "8", "1024", 'c'));
 		i++;
 		
-		liste.add(new Frage(i,kategorieZahl, 2 ,"Wann wurde die Firma Microsoft gegründet?", "2", "4", "8", "1024", 'c'));
+		listeSchwierigkeit1.add(new Frage(i,kategorieZahl, 2 ,"Wann wurde die Firma Microsoft gegründet?", "2", "4", "8", "1024", 'c'));
 		i++;
 		
+		
+		//Fragen des Schwierigkeitsgrad 2
+		
+		ArrayList<Frage> listeSchwierigkeit2 = hmFuerKategorie.get(2);
+				
+		
+		
+		//Fragen des Schwierigkeitsgrad 3
+				
+		ArrayList<Frage> listeSchwierigkeit3 = hmFuerKategorie.get(3);
 		
 		}else {
 			System.out.println("Kategorie nicht enthalten");
 		}
+	}
+	
+	public Frage zufaelligeFrageAusgebenMitStufe(String kategorie, int stufe)
+	{
+		Frage frage = this.fragenliste.get(kategorie).get(stufe).get((int) Math.round(Math.random()*this.fragenliste.get(kategorie).get(stufe).size()-1));
+		
+		return frage;
 	}
 }

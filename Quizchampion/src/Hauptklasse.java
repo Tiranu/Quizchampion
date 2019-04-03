@@ -8,6 +8,8 @@ public class Hauptklasse {
 	private static int punkteS1 = 0;
 	private static int punkteS2 = 0;
 	private static int punkteS3 = 0;
+	private static GUI_Fragen guiFragen;
+	private final static int anzahlSchwierigkeitsgrade = 3;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -110,6 +112,18 @@ public class Hauptklasse {
 
 	public static void setSpielername3(String spielername3) {
 		Hauptklasse.spielername3 = spielername3;
+	}
+
+	public static GUI_Fragen getGuiFragen() {
+		return guiFragen;
+	}
+
+	public static void setGuiFragen(GUI_Fragen guiFragen) {
+		Hauptklasse.guiFragen = guiFragen;
+	}
+
+	public static int getAnzahlSchwierigkeitsgrade() {
+		return anzahlSchwierigkeitsgrade;
 	}
 }
 	
