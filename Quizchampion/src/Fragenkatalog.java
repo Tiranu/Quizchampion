@@ -15,7 +15,7 @@ public class Fragenkatalog {
 		{
 			fragenliste.put(kategorien.get(i), new HashMap<Integer, ArrayList<Frage>>());
 					
-			for(int j = 1; i <= Hauptklasse.getAnzahlSchwierigkeitsgrade();i++)
+			for(int j = 1; j <= Hauptklasse.getAnzahlSchwierigkeitsgrade();j++)
 			{
 				fragenliste.get(kategorien.get(i)).put(j, new ArrayList<Frage>());
 			}
