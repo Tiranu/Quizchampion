@@ -4,6 +4,7 @@ public class Hauptklasse {
 
 	public static Fragenkatalog fragenkatalog = new Fragenkatalog();
 	private static int spielerzahl = 0;
+	private static String spielername1, spielername2, spielername3;
 	private static int punkteS1 = 0;
 	private static int punkteS2 = 0;
 	private static int punkteS3 = 0;
@@ -85,6 +86,30 @@ public class Hauptklasse {
 
 	public static void setPunkteS3(int punkteS3) {
 		Hauptklasse.punkteS3 = punkteS3;
+	}
+
+	public static String getSpielername1() {
+		return spielername1;
+	}
+
+	public static void setSpielername1(String spielername1) {
+		Hauptklasse.spielername1 = spielername1;
+	}
+
+	public static String getSpielername2() {
+		return spielername2;
+	}
+
+	public static void setSpielername2(String spielername2) {
+		Hauptklasse.spielername2 = spielername2;
+	}
+
+	public static String getSpielername3() {
+		return spielername3;
+	}
+
+	public static void setSpielername3(String spielername3) {
+		Hauptklasse.spielername3 = spielername3;
 	}
 }
 	

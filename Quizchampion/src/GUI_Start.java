@@ -109,6 +109,12 @@ public class GUI_Start {
 			public void mouseClicked(MouseEvent e) {
 				if (Hauptklasse.getSpielerzahl() != 0)
 				{
+					switch (Hauptklasse.getSpielerzahl())
+					{
+					case 1: Hauptklasse.setSpielername1(tfSpielername1.getText());
+					case 2: Hauptklasse.setSpielername2(tfSpielername2.getText());
+					case 3: Hauptklasse.setSpielername3(tfSpielername3.getText());
+					}
 					Hauptklasse.fragenStarten();
 				}
 			}
