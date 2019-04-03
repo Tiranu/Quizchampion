@@ -23,6 +23,7 @@ public class GUI_Kategoriewahl extends JFrame {
 	JButton btnKategorie1;
 	JButton btnKategorie2;
 	JButton btnKategorie3;
+	ArrayList<String> zufaelligeKategorien = new ArrayList<String>();
 	/**
 	 * Launch the application.
 	 */
@@ -50,7 +51,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		ArrayList<String> zufaelligeKategorien = new ArrayList<String>();
+		
 		zufaelligeKategorien = zufaelligeKategorieauswahl(anzahlKategorien-1);
 		
 		lblWhleEineKategorie = new JLabel("Wähle eine Kategorie");
@@ -63,6 +64,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		btnKategorie1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				frageStarten(zufaelligeKategorien.get(0));
 			}
 		});
 		btnKategorie1.setBounds(170, 90, 117, 29);
@@ -87,20 +89,35 @@ public class GUI_Kategoriewahl extends JFrame {
 		contentPane.add(btnKategorie3);
 	}
 	
+	public void frageStarten(String kategorie)
+	{
+		EventQueue.invokeLater(new Runnable() {
+		@Override
+		public void run() {
+			try {
+				Hauptklasse.setGuiFragen(new GUI_Fragen("1", "2", "3", "4", "5", "6", 'A', 3)); 
+				Hauptklasse.getGuiFragen().setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	});
+	}
+	
 	public ArrayList<String> zufaelligeKategorieauswahl(int anzahlKategorien)
 	{ 
-		int kat1 = (int) Math.round((Math.random() * anzahlKategorien));
+		int kat1 = (int) Math.round(Math.random() * anzahlKategorien);
 		
-		int kat2 = (int) Math.round((Math.random() * anzahlKategorien));
+		int kat2 = (int) Math.round(Math.random() * anzahlKategorien);
 		while (kat1 == kat2)
 		{
-			kat2 = (int) Math.round((Math.random() * anzahlKategorien));
+			kat2 = (int) Math.round(Math.random() * anzahlKategorien);
 		}
 		
-		int kat3 = (int) Math.round((Math.random() * anzahlKategorien));
+		int kat3 = (int) Math.round(Math.random() * anzahlKategorien);
 		while (kat1 == kat3 || kat2 == kat3)
 		{
-			kat3 = (int) Math.round((Math.random() * anzahlKategorien));
+			kat3 = (int) Math.round(Math.random() * anzahlKategorien);
 		}
 		ArrayList<String> zufaelligeKategorien = new ArrayList<String>();
 		
