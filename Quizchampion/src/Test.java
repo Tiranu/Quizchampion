@@ -8,7 +8,8 @@ public class Test {
 		// TODO Auto-generated method stub
 		//new Fragenkatalog();
 		//guiErstellen();
-		testGUI_Kategorienwahl();
+		//testGUI_Kategorienwahl();
+		fragenTesten();
 	}
 
 	public static void guiErstellen()
@@ -38,5 +39,11 @@ public class Test {
 				}
 			}
 		});
+	}
+	
+	public static void fragenTesten()
+	{
+		Fragenkatalog fragenkatalog = new Fragenkatalog();
+		System.out.println(fragenkatalog.zufaelligeFrageAusgebenMitStufe("Informatik", 1).getFrage());
 	}
 }
