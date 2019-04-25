@@ -8,8 +8,8 @@ public class Test {
 		// TODO Auto-generated method stub
 		//new Fragenkatalog();
 		//guiErstellen();
-		//testGUI_Kategorienwahl();
-		fragenTesten();
+		testGUI_Kategorienwahl();
+		//fragenTesten();
 	}
 
 	public static void guiErstellen()

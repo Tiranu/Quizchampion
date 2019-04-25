@@ -32,6 +32,7 @@ public class Fragenkatalog {
 		kategorien.add("Universität");
 		kategorien.add("Games");
 		kategorien.add("Biologie");	
+		
 	}
 	
 	

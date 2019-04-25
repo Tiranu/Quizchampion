@@ -74,6 +74,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		btnKategorie2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				frageStarten(zufaelligeKategorien.get(1));
 			}
 		});
 		btnKategorie2.setBounds(170, 140, 117, 29);
@@ -83,6 +84,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		btnKategorie3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				frageStarten(zufaelligeKategorien.get(2));
 			}
 		});
 		btnKategorie3.setBounds(170, 190, 117, 29);
