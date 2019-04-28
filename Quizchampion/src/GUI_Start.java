@@ -16,12 +16,15 @@ import javax.swing.JTextArea;
 public class GUI_Start {
 
 	JFrame frmWerWirdMcgquizchampion;
-	private final ButtonGroup btnGroupSpielerzahl = new ButtonGroup();
+	private JLabel lblWillkommenBeiMcgquizchampion;
 	private JTextField tfSpielername1;
 	private JTextField tfSpielername2;
 	private JTextField tfSpielername3;
 	private JTextArea txtrRegeln;
 	private JButton btnLaden;
+	JButton btnSpieler_1;
+	JButton btnSpieler_2;
+	JButton btnSpieler_3;
 
 	/**
 	 * Launch the application.
@@ -58,46 +61,52 @@ public class GUI_Start {
 		frmWerWirdMcgquizchampion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWerWirdMcgquizchampion.getContentPane().setLayout(null);
 		
-		JLabel lblWillkommenBeiMcgquizchampion = new JLabel("Willkommen bei MCG-Quizchampion");
+		lblWillkommenBeiMcgquizchampion = new JLabel("Willkommen bei MCG-Quizchampion");
 		lblWillkommenBeiMcgquizchampion.setFont(new Font("Khmer MN", Font.PLAIN, 45));
 		lblWillkommenBeiMcgquizchampion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWillkommenBeiMcgquizchampion.setBounds(109, 21, 725, 79);
 		frmWerWirdMcgquizchampion.getContentPane().add(lblWillkommenBeiMcgquizchampion);
 		
-		JButton btnSpieler_1 = new JButton("1 Spieler");
-		btnGroupSpielerzahl.add(btnSpieler_1);
+		btnSpieler_1 = new JButton("1 Spieler");
 		btnSpieler_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Hauptklasse.setSpielerzahl(1);
+				btnSpieler_1.setBackground(new Color(255, 37, 41));
+				btnSpieler_2.setBackground(new Color (240, 240, 240));
+				btnSpieler_3.setBackground(new Color(240, 240, 240));
 			}
 		});
 		btnSpieler_1.setBounds(50, 250, 150, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_1);
 		
-		JButton btnSpieler_2 = new JButton("2 Spieler");
-		btnGroupSpielerzahl.add(btnSpieler_2);
+		btnSpieler_2 = new JButton("2 Spieler");
 		btnSpieler_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Hauptklasse.setSpielerzahl(2);
+				btnSpieler_1.setBackground(new Color(240, 240, 240));
+				btnSpieler_2.setBackground(new Color(255, 37, 41));
+				btnSpieler_3.setBackground(new Color(240, 240, 240));
 			}
 		});
 		btnSpieler_2.setBounds(50, 350, 150, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_2);
 		
-		JButton btnSpieler_3 = new JButton("3 Spieler");
-		btnGroupSpielerzahl.add(btnSpieler_3);
+		btnSpieler_3 = new JButton("3 Spieler");
 		btnSpieler_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Hauptklasse.setSpielerzahl(3);
+				btnSpieler_1.setBackground(new Color(240, 240, 240));
+				btnSpieler_2.setBackground(new Color(240, 240, 240));
+				btnSpieler_3.setBackground(new Color(255, 37, 41));
 			}
 		});
 		btnSpieler_3.setBounds(50, 450, 150, 40);
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_3);
 		
-		JLabel lblBitteWhleDie = new JLabel("Bitte wähle die Anzahl der Spieler!");
+		JLabel lblBitteWhleDie = new JLabel("Bitte waehle die Anzahl der Spieler!");
 		lblBitteWhleDie.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBitteWhleDie.setFont(new Font("Lucida Grande", Font.PLAIN, 24));
 		lblBitteWhleDie.setBounds(275, 132, 450, 40);
