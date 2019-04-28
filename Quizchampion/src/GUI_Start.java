@@ -121,8 +121,11 @@ public class GUI_Start {
 					switch (Hauptklasse.getSpielerzahl())
 					{
 					case 1: Hauptklasse.setSpielername1(tfSpielername1.getText());
-					case 2: Hauptklasse.setSpielername2(tfSpielername2.getText());
-					case 3: Hauptklasse.setSpielername3(tfSpielername3.getText());
+					case 2: Hauptklasse.setSpielername1(tfSpielername1.getText()); 
+							Hauptklasse.setSpielername2(tfSpielername2.getText());
+					case 3: Hauptklasse.setSpielername1(tfSpielername1.getText()); 
+							Hauptklasse.setSpielername2(tfSpielername2.getText());
+							Hauptklasse.setSpielername3(tfSpielername3.getText());
 					}
 					Hauptklasse.fragenStarten();
 				}
