@@ -2,7 +2,7 @@ import java.awt.EventQueue;
 
 public class Hauptklasse {
 
-	public static Fragenkatalog fragenkatalog = new Fragenkatalog();
+	private static Fragenkatalog fragenkatalog = new Fragenkatalog();
 	private static int spielerzahl = 0;
 	private static String spielername1, spielername2, spielername3;
 	private static int punkteS1 = 0;
@@ -10,6 +10,7 @@ public class Hauptklasse {
 	private static int punkteS3 = 0;
 	private static GUI_Fragen guiFragen;
 	private final static int anzahlSchwierigkeitsgrade = 3;
+	private static int aktuellerSchwierigkeitsgrad;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -42,12 +43,14 @@ public class Hauptklasse {
 		});
 	}
 	
-	public static void fragenStarten()
+	public static void fragenStarten(int aktuellerSchwierigkeitsgrad)
 	{
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
 				try {
+					GUI_Kategoriewahl gui_Kategoriewahl = new GUI_Kategoriewahl(aktuellerSchwierigkeitsgrad);
+					gui_Kategoriewahl.setVisible(true);
 					//GUI_Fragen gui_Fragen = new GUI_Fragen();
 					//gui_Fragen.setVisible(true);
 				} catch (Exception e) {
@@ -124,6 +127,22 @@ public class Hauptklasse {
 
 	public static int getAnzahlSchwierigkeitsgrade() {
 		return anzahlSchwierigkeitsgrade;
+	}
+
+	public static Fragenkatalog getFragenkatalog() {
+		return fragenkatalog;
+	}
+
+	public static void setFragenkatalog(Fragenkatalog fragenkatalog) {
+		Hauptklasse.fragenkatalog = fragenkatalog;
+	}
+
+	public static int getAktuellerSchwierigkeitsgrad() {
+		return aktuellerSchwierigkeitsgrad;
+	}
+
+	public static void setAktuellerSchwierigkeitsgrad(int aktuellerSchwierigkeitsgrad) {
+		aktuellerSchwierigkeitsgrad = aktuellerSchwierigkeitsgrad;
 	}
 }
 	

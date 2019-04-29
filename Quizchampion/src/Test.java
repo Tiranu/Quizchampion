@@ -32,7 +32,7 @@ public class Test {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI_Kategoriewahl frame = new GUI_Kategoriewahl();
+					GUI_Kategoriewahl frame = new GUI_Kategoriewahl(1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

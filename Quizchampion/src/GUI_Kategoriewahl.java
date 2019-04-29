@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class GUI_Kategoriewahl extends JFrame {
 
-	int anzahlKategorien = Hauptklasse.fragenkatalog.kategorien.size();
+	int anzahlKategorien = Hauptklasse.getFragenkatalog().kategorien.size();
 	
 	private JPanel contentPane;
 	private JLabel lblWhleEineKategorie;
@@ -31,7 +31,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI_Kategoriewahl frame = new GUI_Kategoriewahl();
+					GUI_Kategoriewahl frame = new GUI_Kategoriewahl(1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class GUI_Kategoriewahl extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI_Kategoriewahl() {
+	public GUI_Kategoriewahl(int schwierigkeitsgrad) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -64,7 +64,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		btnKategorie1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frageStarten(zufaelligeKategorien.get(0));
+				frageStarten(zufaelligeKategorien.get(0), schwierigkeitsgrad);
 			}
 		});
 		btnKategorie1.setBounds(170, 90, 117, 29);
@@ -74,7 +74,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		btnKategorie2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frageStarten(zufaelligeKategorien.get(1));
+				frageStarten(zufaelligeKategorien.get(1), schwierigkeitsgrad);
 			}
 		});
 		btnKategorie2.setBounds(170, 140, 117, 29);
@@ -84,20 +84,21 @@ public class GUI_Kategoriewahl extends JFrame {
 		btnKategorie3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frageStarten(zufaelligeKategorien.get(2));
+				frageStarten(zufaelligeKategorien.get(2), schwierigkeitsgrad);
 			}
 		});
 		btnKategorie3.setBounds(170, 190, 117, 29);
 		contentPane.add(btnKategorie3);
 	}
 	
-	public void frageStarten(String kategorie)
+	public void frageStarten(String kategorie, int schwierigkeitsgrad)
 	{
 		EventQueue.invokeLater(new Runnable() {
 		@Override
 		public void run() {
 			try {
-				Hauptklasse.setGuiFragen(new GUI_Fragen("1", "2", "3", "4", "5", "6", 'A', 3)); 
+				Frage frage = zufaelligeFrageWaehlen(kategorie, schwierigkeitsgrad);
+				Hauptklasse.setGuiFragen(new GUI_Fragen("1", "2", "3", "4", "5", "6", 'A', 3));  //Dummys müssen noch gegen Frage.get ... ausgetauscht werden!
 				Hauptklasse.getGuiFragen().setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -123,10 +124,16 @@ public class GUI_Kategoriewahl extends JFrame {
 		}
 		ArrayList<String> zufaelligeKategorien = new ArrayList<String>();
 		
-		zufaelligeKategorien.add(Hauptklasse.fragenkatalog.kategorien.get(kat1));
-		zufaelligeKategorien.add(Hauptklasse.fragenkatalog.kategorien.get(kat2));
-		zufaelligeKategorien.add(Hauptklasse.fragenkatalog.kategorien.get(kat3));
+		zufaelligeKategorien.add(Hauptklasse.getFragenkatalog().kategorien.get(kat1));
+		zufaelligeKategorien.add(Hauptklasse.getFragenkatalog().kategorien.get(kat2));
+		zufaelligeKategorien.add(Hauptklasse.getFragenkatalog().kategorien.get(kat3));
 		
 		return  zufaelligeKategorien;
+	}
+	
+	public Frage zufaelligeFrageWaehlen(String kategorie, int schwierigkeitsgrad)
+	{
+		Frage frage = Hauptklasse.getFragenkatalog().fragenliste.get(kategorie).get(schwierigkeitsgrad).get((int) (Math.round(Math.random()*Hauptklasse.getFragenkatalog().fragenliste.get(kategorie).size())));
+		return frage;
 	}
 }

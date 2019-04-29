@@ -127,7 +127,7 @@ public class GUI_Start {
 							Hauptklasse.setSpielername2(tfSpielername2.getText());
 							Hauptklasse.setSpielername3(tfSpielername3.getText());
 					}
-					Hauptklasse.fragenStarten();
+					Hauptklasse.fragenStarten(Hauptklasse.getAktuellerSchwierigkeitsgrad());
 				}
 			}
 		});

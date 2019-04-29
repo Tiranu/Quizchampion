@@ -26,12 +26,18 @@ public class Fragenkatalog {
 	}
 	
 	
-	private void kategorienFuellen()
+	public void kategorienFuellen()
 	{
 		kategorien.add("Informatik");
-		kategorien.add("Universität");
+		kategorien.add("Sport");
 		kategorien.add("Games");
-		kategorien.add("Biologie");	
+		kategorien.add("Rund um die Welt");	
+		kategorien.add("Mathematik");	
+		kategorien.add("Musik");	
+		kategorien.add("Im Labor");	
+		kategorien.add("Religion");	
+		kategorien.add("In der Natur");	
+		kategorien.add("Platzhalter");	
 		
 	}
 	
@@ -40,7 +46,7 @@ public class Fragenkatalog {
 	 * Die Methode informatikFuellen füllt die Kategorie "Informatik" mit Fragen. Jede Frage wird einzeln als Frageobjekt an die Arraylist der Kategorie übergeben.
 	 */
 	
-	private void informatikFuellen(int kategorieZahl)
+	public void informatikFuellen(int kategorieZahl)
 	{
 		int i = 1;
 		String kategorie = "Informatik";
