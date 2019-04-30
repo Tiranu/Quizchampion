@@ -10,7 +10,7 @@ public class Hauptklasse {
 	private static int punkteS3 = 0;
 	private static GUI_Fragen guiFragen;
 	private final static int anzahlSchwierigkeitsgrade = 3;
-	private static int aktuellerSchwierigkeitsgrad;
+	private static int aktuellerSchwierigkeitsgrad = 1;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -45,7 +45,7 @@ public class GUI_Kategoriewahl extends JFrame {
 	 */
 	public GUI_Kategoriewahl(int schwierigkeitsgrad) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -54,7 +54,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		
 		zufaelligeKategorien = zufaelligeKategorieauswahl(anzahlKategorien-1);
 		
-		lblWhleEineKategorie = new JLabel("Wähle eine Kategorie");
+		lblWhleEineKategorie = new JLabel("Waehle eine Kategorie");
 		lblWhleEineKategorie.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWhleEineKategorie.setFont(new Font("Khmer MN", Font.PLAIN, 20));
 		lblWhleEineKategorie.setBounds(125, 20, 200, 40);
@@ -98,7 +98,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		public void run() {
 			try {
 				Frage frage = zufaelligeFrageWaehlen(kategorie, schwierigkeitsgrad);
-				Hauptklasse.setGuiFragen(new GUI_Fragen("1", "2", "3", "4", "5", "6", 'A', 3));  //Dummys müssen noch gegen Frage.get ... ausgetauscht werden!
+				Hauptklasse.setGuiFragen(new GUI_Fragen(frage.getKategorie(), frage.getFrage(), frage.getAntwortA(), frage.getAntwortB(), frage.getAntwortC(), frage.getAntwortD(), frage.getKorrekteAntwort(), frage.getSchwierigkeitsgrad())); 
 				Hauptklasse.getGuiFragen().setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
