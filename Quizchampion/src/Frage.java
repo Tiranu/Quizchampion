@@ -3,7 +3,7 @@ public class Frage {
 
 	
 private int nummer;
-private int kategorie;
+private String kategorie;
 private int schwierigkeitsgrad; //1 leicht, 2 mittel, 3 schwer
 private String frage;
 
@@ -25,7 +25,7 @@ private Character korrekteAntwort;
  * @param korrekteAntwort
  */
 
-public Frage(int nummer, int kategorie, int schwierigkeitsgrad, String frage, String a, String b, String c, String d, Character korrekteAntwort) {
+public Frage(int nummer, String kategorie, int schwierigkeitsgrad, String frage, String a, String b, String c, String d, Character korrekteAntwort) {
 	super();
 	this.nummer = nummer;
 	this.kategorie = kategorie;
@@ -62,11 +62,11 @@ private void setNummer(int nummer) {
 	this.nummer = nummer;
 }
 
-public int getKategorie() {
+public String getKategorie() {
 	return kategorie;
 }
 
-private void setKategorie(int kategorie) {
+private void setKategorie(String kategorie) {
 	this.kategorie = kategorie;
 }
 
@@ -83,8 +83,6 @@ private void setFrage(String frage) {
 public String getAntwortA() {
 	return antwortA;
 }
-
-
 
 
 private void setAntwortA(String antwortA) {

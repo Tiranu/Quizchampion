@@ -59,10 +59,10 @@ public class Fragenkatalog {
 		
 		ArrayList<Frage> listeSchwierigkeit1 = hmFuerKategorie.get(1);
 		
-		listeSchwierigkeit1.add(new Frage(i,kategorieZahl, 1, "Wieviele Bit hat ein Byte?", "2", "4", "8", "1024", 'c'));
+		listeSchwierigkeit1.add(new Frage(i,kategorie, 1, "Wieviele Bit hat ein Byte?", "2", "4", "8", "1024", 'c'));
 		i++;
 		
-		listeSchwierigkeit1.add(new Frage(i,kategorieZahl, 2 ,"Wann wurde die Firma Microsoft gegründet?", "2", "4", "8", "1024", 'c'));
+		listeSchwierigkeit1.add(new Frage(i,kategorie, 2 ,"Wann wurde die Firma Microsoft gegründet?", "2", "4", "8", "1024", 'c'));
 		i++;
 		
 		
