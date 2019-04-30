@@ -78,6 +78,7 @@ public class GUI_Start {
 			}
 		});
 		btnSpieler_1.setBounds(50, 250, 150, 40);
+		btnSpieler_1.setBackground(new Color(240, 240, 240));
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_1);
 		
 		btnSpieler_2 = new JButton("2 Spieler");
@@ -91,6 +92,7 @@ public class GUI_Start {
 			}
 		});
 		btnSpieler_2.setBounds(50, 350, 150, 40);
+		btnSpieler_2.setBackground(new Color(240, 240, 240));
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_2);
 		
 		btnSpieler_3 = new JButton("3 Spieler");
@@ -104,6 +106,7 @@ public class GUI_Start {
 			}
 		});
 		btnSpieler_3.setBounds(50, 450, 150, 40);
+		btnSpieler_3.setBackground(new Color(240, 240, 240));
 		frmWerWirdMcgquizchampion.getContentPane().add(btnSpieler_3);
 		
 		JLabel lblBitteWhleDie = new JLabel("Bitte waehle die Anzahl der Spieler!");
@@ -133,6 +136,7 @@ public class GUI_Start {
 		});
 		btnStart.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		btnStart.setBounds(50, 657, 150, 40);
+		btnStart.setBackground(new Color(240, 240, 240));
 		frmWerWirdMcgquizchampion.getContentPane().add(btnStart);
 		
 		tfSpielername1 = new JTextField();
@@ -159,7 +163,9 @@ public class GUI_Start {
 		btnLaden = new JButton("Spiel laden");
 		btnLaden.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		btnLaden.setBounds(251, 657, 150, 40);
+		btnLaden.setBackground(new Color(240, 240, 240));
 		frmWerWirdMcgquizchampion.getContentPane().add(btnLaden);
+		
 		
 	}
 }
