@@ -45,7 +45,7 @@ public class GUI_Kategoriewahl extends JFrame {
 	 */
 	public GUI_Kategoriewahl(int schwierigkeitsgrad) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,7 +57,7 @@ public class GUI_Kategoriewahl extends JFrame {
 		lblWhleEineKategorie = new JLabel("Wähle eine Kategorie");
 		lblWhleEineKategorie.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWhleEineKategorie.setFont(new Font("Khmer MN", Font.PLAIN, 20));
-		lblWhleEineKategorie.setBounds(125, 20, 200, 40);
+		lblWhleEineKategorie.setBounds(200, 20, 200, 40);
 		contentPane.add(lblWhleEineKategorie);
 		
 		btnKategorie1 = new JButton(zufaelligeKategorien.get(0));
@@ -67,7 +67,7 @@ public class GUI_Kategoriewahl extends JFrame {
 				frageStarten(zufaelligeKategorien.get(0), schwierigkeitsgrad);
 			}
 		});
-		btnKategorie1.setBounds(170, 90, 117, 29);
+		btnKategorie1.setBounds(230, 100, 140, 30);
 		contentPane.add(btnKategorie1);
 		
 		btnKategorie2 = new JButton(zufaelligeKategorien.get(1));
@@ -77,7 +77,7 @@ public class GUI_Kategoriewahl extends JFrame {
 				frageStarten(zufaelligeKategorien.get(1), schwierigkeitsgrad);
 			}
 		});
-		btnKategorie2.setBounds(170, 140, 117, 29);
+		btnKategorie2.setBounds(230, 175, 140, 30);
 		contentPane.add(btnKategorie2);
 		
 		btnKategorie3 = new JButton(zufaelligeKategorien.get(2));
@@ -87,7 +87,7 @@ public class GUI_Kategoriewahl extends JFrame {
 				frageStarten(zufaelligeKategorien.get(2), schwierigkeitsgrad);
 			}
 		});
-		btnKategorie3.setBounds(170, 190, 117, 29);
+		btnKategorie3.setBounds(230, 250, 140, 30);
 		contentPane.add(btnKategorie3);
 	}
 	
